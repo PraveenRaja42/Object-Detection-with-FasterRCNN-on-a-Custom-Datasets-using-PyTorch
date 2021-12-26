@@ -14,7 +14,7 @@ some of the result images
 model training
 
 ```
-python train_model.py --img_dir [path to image dir] --df_dr [path to meta data (labels, bounding_boxes) dir] --cuda --n_epochs --r [name of the run]
+python train_model.py --img_dir [path to image dir] --df_dr [path to meta data (labels, bounding_boxes) dir] --cuda --n_epochs --r [name of the run for tensorboard logging]
 ```
 
 [trained model weights can be downloaded here](https://drive.google.com/file/d/1-4Hz8-ZQEAFmMDoou8TnY2Y6RAHTo0DX/view?usp=sharing)
