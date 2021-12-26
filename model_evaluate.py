@@ -45,6 +45,9 @@ if __name__ == "__main__":
     parser.add_argument(
         "--df_dir", default=DEFAULT_DF_DIR, help="dir to metadata folder"
     )
+    parser.add_argument(
+        "--save_dir", required=True, help="dir to save images"
+    )
     args = parser.parse_args()
 
     _, test_loader = data_preprocessing.data_loader(args.df_dir, args.img_dir)
@@ -65,5 +68,5 @@ if __name__ == "__main__":
                 bbs=bbs,
                 texts=labels,
                 sz=5,
-                save_path=f"C:/Users/91950/Object_detection_project/saved image{ix}",
+                save_path=args.save_dir/f"Image{ix}",
             )
