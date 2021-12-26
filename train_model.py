@@ -9,8 +9,8 @@ import argparse
 import torch.optim as optim
 from tensorboardX import SummaryWriter
 
-DEFAULT_IMG_DIR = "C:/Users/91950/Object_detection_project/images"
-DEFAULT_DF_DIR = "C:/Users/91950/Object_detection_project/df.csv"
+DEFAULT_IMG_DIR = "/users/Object_detection_project/images"
+DEFAULT_DF_DIR = "/users/Object_detection_project/df.csv"
 N_EPOCHS = 5
 
 
