@@ -25,4 +25,8 @@ model evaluation
 python train_model.py --serialized_file [path to saved model weights] --img_dir [path to image dir] --df_dir [path to meta data (labels, bounding_boxes) dir]
 ```
 
+tensorboardX installation
 
+```
+pip install tensorboardX
+```
