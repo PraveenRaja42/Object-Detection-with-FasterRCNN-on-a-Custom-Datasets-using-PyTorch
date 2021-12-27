@@ -29,7 +29,7 @@ python model_evaluate.py --serialized_file [path to saved model weights] --img_d
 
 
 ```
-python evaluate.py --serialized_file [path to saved model weights] --img_dir [path to image dir] --df_dir [path to meta data (labels, bounding_boxes) dir]
+python evaluate.py --serialized_file [path to saved model weights] --img_dir [path to image dir] --df_dir [path to meta data (labels, bounding box) dir] --save_dir [dir to save images]
 ```
 
 tensorboardX installation
