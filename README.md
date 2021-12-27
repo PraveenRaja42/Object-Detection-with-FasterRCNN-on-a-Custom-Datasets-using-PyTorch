@@ -9,9 +9,13 @@ some of the result images
 
 ![alt_text](https://github.com/PraveenRaja42/Object-Detection-with-FasterRCNN-on-a-Custom-Datasets-using-PyTorch/blob/main/saved%20images/saved%20images%20new1.png)
 ![alt_text](https://github.com/PraveenRaja42/Object-Detection-with-FasterRCNN-on-a-Custom-Datasets-using-PyTorch/blob/main/saved%20images/sv%206.jpg)
+![alt_text](https://github.com/PraveenRaja42/Object-Detection-with-FasterRCNN-on-a-Custom-Datasets-using-PyTorch/blob/main/saved%20images/res_img%201.png?raw=true)
+![alt_text](https://github.com/PraveenRaja42/Object-Detection-with-FasterRCNN-on-a-Custom-Datasets-using-PyTorch/blob/main/saved%20images/res_img%203.png?raw=true)
 ![alt_text](https://github.com/PraveenRaja42/Object-Detection-with-FasterRCNN-on-a-Custom-Datasets-using-PyTorch/blob/main/saved%20images/saved%20image2.png)
+![alt_text](https://github.com/PraveenRaja42/Object-Detection-with-FasterRCNN-on-a-Custom-Datasets-using-PyTorch/blob/main/saved%20images/res_img%200.png?raw=true)
 ![alt_text](https://github.com/PraveenRaja42/Object-Detection-with-FasterRCNN-on-a-Custom-Datasets-using-PyTorch/blob/main/saved%20images/saved%20image3.png)
 ![alt_text](https://github.com/PraveenRaja42/Object-Detection-with-FasterRCNN-on-a-Custom-Datasets-using-PyTorch/blob/main/saved%20images/sv%205.jpg)
+
 
 model training
 
@@ -29,7 +33,7 @@ python model_evaluate.py --serialized_file [path to saved model weights] --img_d
 
 
 ```
-python evaluate.py --serialized_file [path to saved model weights] --img_dir [path to image dir] --df_dir [path to meta data (labels, bounding box) dir] --save_dir [dir to save images]
+python evaluate.py --serialized_file [path to saved model weights] --img_dir [path to image dir] --df_dir [path to meta data] --save_dir [dir to save images]
 ```
 
 tensorboardX installation
