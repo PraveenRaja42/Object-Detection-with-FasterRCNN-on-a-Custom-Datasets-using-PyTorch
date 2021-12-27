@@ -1,6 +1,7 @@
 from fastcore.test import test
 from matplotlib.pyplot import text
 import torch
+import glob
 from torch.utils import data
 from torch_snippets import *
 import data_preprocessing
@@ -14,14 +15,28 @@ from PIL import Image
 
 DEFAULT_IMG_DIR = "C:/Users/91950/Object_detection_project/images"
 DEFAULT_DF_DIR = "C:/Users/91950/Object_detection_project/df.csv"
+DEFAULT_SAVE_DIR = "saves"
 
 
-def decode_output(output, df):
-    df = pd.read_csv(df)
-    label2target = {l: t + 1 for t, l in enumerate(df["LabelName"].unique())}
-    label2target["background"] = 0
-    target2label = {t: l for l, t in label2target.items()}
-    num_classes = len(label2target)
+def preprocess_image(img):
+    img = torch.tensor(img).permute(2, 0, 1)
+    return img.float()
+
+
+def data_preprocess(img_path):
+    img_files = glob.glob(img_path + "/*")
+    res_img = []
+    for img in img_files:
+
+        ig = Image.open(img).convert("RGB")
+        ig = np.array(ig.resize((224, 224), resample=Image.BILINEAR)) / 255
+        ig = preprocess_image(ig)
+        res_img.append(ig)
+    return res_img
+
+
+def decode_output(output):
+    target2label = {1: "Bus", 2: "Truck", 0: "background"}
     "convert tensors to numpy arrays"
     bbs = output["boxes"].cpu().detach().numpy().astype(np.uint16)
     labels = np.array(
@@ -43,30 +58,28 @@ if __name__ == "__main__":
         "--img_dir", default=DEFAULT_IMG_DIR, help="dir to image folder"
     )
     parser.add_argument(
-        "--df_dir", default=DEFAULT_DF_DIR, help="dir to metadata folder"
-    )
-    parser.add_argument(
-        "--save_dir", required=True, help="dir to save images"
+        "--save_path", default=DEFAULT_SAVE_DIR, help="dir to save result images"
     )
     args = parser.parse_args()
 
-    _, test_loader = data_preprocessing.data_loader(args.df_dir, args.img_dir)
+    img_files = data_preprocess(args.img_dir)
+    test_loader = DataLoader(img_files, batch_size=len(img_files), drop_last=True)
     model = model.get_model()
     model.load_state_dict(torch.load(args.serialized_file))
+    device = torch.device("cpu")
     model.eval()
 
-    for ix, (images, targets) in enumerate(test_loader):
-        if ix == 3:
-            break
-        images = [im for im in images]
-        output = model(images)
-        for ix, output in enumerate(output):
-            bbs, confs, labels = decode_output(output, args.df_dir)
+    for ix, images in enumerate(test_loader):
+        # if ix==3: break
+        # images = [im for im in images]
+        outputs = model(images)
+        for ix, output in enumerate(outputs):
+            bbs, confs, labels = decode_output(output)
             info = [f"{l}@{c:.2f}" for l, c in zip(labels, confs)]
             show(
                 images[ix].cpu().permute(1, 2, 0),
                 bbs=bbs,
                 texts=labels,
                 sz=5,
-                save_path=args.save_dir/f"Image{ix}",
+                save_path=os.path.join(args.save_path, f"res_img {ix}"),
             )
