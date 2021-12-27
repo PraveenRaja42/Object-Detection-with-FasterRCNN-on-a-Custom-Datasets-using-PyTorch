@@ -24,12 +24,12 @@ python train_model.py --img_dir [path to image dir] --df_dr [path to meta data (
 model evaluation
 
 ```
-python evaluate.py --serialized_file [path to saved model weights] --img_dir [path to test image dir] --save_path [dir to save result images]
+python model_evaluate.py --serialized_file [path to saved model weights] --img_dir [path to test image dir] --save_path [dir to save result images]
 ```
 
 
 ```
-python model_evaluate.py --serialized_file [path to saved model weights] --img_dir [path to image dir] --df_dir [path to meta data (labels, bounding_boxes) dir]
+python evaluate.py --serialized_file [path to saved model weights] --img_dir [path to image dir] --df_dir [path to meta data (labels, bounding_boxes) dir]
 ```
 
 tensorboardX installation
