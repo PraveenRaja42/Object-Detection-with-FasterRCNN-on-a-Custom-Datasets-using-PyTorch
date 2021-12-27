@@ -5,7 +5,7 @@ Training the Faster R-CNN neural network to detect the bounding boxes around obj
 
 some of the result images
 
-![alt_text](https://github.com/PraveenRaja42/Object-Detection-with-FasterRCNN-on-a-Custom-Datasets-using-PyTorch/blob/main/saved%20images/saved%20image1.png)
+![alt_text](https://github.com/PraveenRaja42/Object-Detection-with-FasterRCNN-on-a-Custom-Datasets-using-PyTorch/blob/main/saved%20images/saved%20images%20new1.png)
 ![alt_text](https://github.com/PraveenRaja42/Object-Detection-with-FasterRCNN-on-a-Custom-Datasets-using-PyTorch/blob/main/saved%20images/sv%206.jpg)
 ![alt_text](https://github.com/PraveenRaja42/Object-Detection-with-FasterRCNN-on-a-Custom-Datasets-using-PyTorch/blob/main/saved%20images/saved%20image2.png)
 ![alt_text](https://github.com/PraveenRaja42/Object-Detection-with-FasterRCNN-on-a-Custom-Datasets-using-PyTorch/blob/main/saved%20images/saved%20image3.png)
